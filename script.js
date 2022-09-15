@@ -25,13 +25,14 @@ const typeController = (e) => {
 
   // Handle backspace press
   if (newLetter == "Backspace") {
+    errorCount = errorCount + 1;
     userText = userText.slice(0, userText.length - 1);
     return display.removeChild(display.lastChild);
   }
 
   // these are the valid character we are allowing to type
   const validLetters =
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890!@#$%^&*()_+-={}[]'\".,?";
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890!@#$%^&*()_+-={}[]'\.,?";
 
   // if it is not a valid character like Control/Alt then skip displaying anything
   if (!validLetters.includes(newLetter)) {
@@ -67,7 +68,7 @@ const gameOver = () => {
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
-  const timeTaken = Math.round( (finishTime - startTime) / 1000);
+  const timeTaken = Math.round((finishTime - startTime) / 1000)
 
   // show result modal
   resultModal.innerHTML = "";
@@ -124,10 +125,10 @@ const start = () => {
 };
 
 // START Countdown
-
-document.getElementById("starts").addEventListener("click", function(){
-  start()
+document.getElementById('starts').addEventListener("click", function(){
+    start()
 })
+
 
 // If history exists, show it
 displayHistory();
